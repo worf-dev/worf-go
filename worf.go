@@ -1,7 +1,7 @@
 package worf
 
 import (
-	"gitlab.com/kj7s/go-helpers/api"
+	"gitlab.com/7s-worf/go-worf/api"
 	"fmt"
 )
 

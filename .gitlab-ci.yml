@@ -12,7 +12,7 @@ stages:
   - test
 
 before_script:
-  - go dep ./...
+  - go get ./...
 
 unit_tests:
   stage: test

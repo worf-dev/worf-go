@@ -12,6 +12,9 @@ stages:
   - test
 
 before_script:
+  - CI_HOSTNAME=`echo $CI_PROJECT_URL | awk -F[/:] '{print $4}'`
+  - echo ${CI_HOSTNAME}
+  - git config --global url.https:///gitlab-ci-token:${CI_JOB_TOKEN}@${CI_HOSTNAME}/.insteadOf https://gitlab.com/
   - go get ./...
 
 unit_tests:

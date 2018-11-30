@@ -1,7 +1,7 @@
 package worf
 
 import (
-	"gitlab.com/7s-worf/go-worf/api"
+	"gitlab.com/worf/go-worf/api"
 	"time"
 )
 

@@ -1,0 +1,20 @@
+image: golang:1.10
+
+cache:
+  paths:
+    - /apt-cache
+    - /go/src/github.com
+    - /go/src/golang.org
+    - /go/src/gitlab.com
+    - /go/src/gopkg.in
+
+stages:
+  - test
+
+before_script:
+  - go dep ./...
+
+unit_tests:
+  stage: test
+  script:
+    - go test ./...

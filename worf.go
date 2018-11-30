@@ -1,8 +1,8 @@
 package worf
 
 import (
-	"gitlab.com/7s-worf/go-worf/api"
 	"fmt"
+	"gitlab.com/7s-worf/go-worf/api"
 )
 
 //Returns a client for the Management API

@@ -1,11 +1,11 @@
 package api
 
 import (
+	"bytes"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
-	"bytes"
-	"fmt"
 )
 
 //Contains the URL and access token required to use the API

@@ -41,19 +41,19 @@ type Organization struct {
 	Description string `json:"description"`
 	ID          string `json:"id"`
 	Name        string `json:"name"`
-	Role        Role   `json:"role"`
+	Roles       []Role `json:"roles"`
+
 }
 
 //Represents the role of a user in an organization
 type Role struct {
 	Confirmed bool   `json:"confirmed"`
-	Name      string `json:"name"`
-	Primary   bool   `json:"primary"`
+	Role      string `json:"role"`
 }
 
 //Represents a user profile returned by the API.
 type UserProfile struct {
 	User                User          `json:"user"`
 	AccessToken         AccessToken   `json:"access_token"`
-	PrimaryOrganization *Organization `json:"primary_organization,omitempty"`
+	Organization        *Organization `json:"organization,omitempty"`
 }

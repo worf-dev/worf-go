@@ -2,12 +2,27 @@ package worf
 
 import (
 	"gitlab.com/worf/go-worf/api"
+	"encoding/hex"
+	"strings"
 	"time"
 )
 
 //A Worf API client. Contains all routines from the generic API client.
 type Client struct {
 	api.API
+}
+
+type WithUUID struct {
+	ID            string  `json:"id"`
+}
+
+func (w *WithUUID) BinaryID() []byte {
+	rs := strings.Replace(w.ID, "-", "", 0)
+	be, err := hex.DecodeString(rs)
+	if err != nil {
+		panic("not a valid UUID")
+	}
+	return be
 }
 
 //Represents an error message returned by the API.
@@ -26,20 +41,20 @@ type AccessToken struct {
 
 //Represents a user returned by the API.
 type User struct {
+	WithUUID
 	Login         string  `json:"login"`
 	Disabled      bool    `json:"disabled"`
 	EMail         string  `json:"email"`
 	NewEMail      *string `json:"new_email"`
 	EMailVerified bool    `json:"email_verified"`
-	ID            string  `json:"id"`
 	SuperUser     bool    `json:"superuser"`
 }
 
 //Represents the organization of a user
 type Organization struct {
+	WithUUID
 	Active      bool   `json:"active"`
 	Description string `json:"description"`
-	ID          string `json:"id"`
 	Name        string `json:"name"`
 	Roles       []Role `json:"roles"`
 

@@ -9,7 +9,7 @@ import (
 
 //A Worf API client. Contains all routines from the generic API client.
 type Client struct {
-	api.API
+	*api.API
 }
 
 type WithUUID struct {

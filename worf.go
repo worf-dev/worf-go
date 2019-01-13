@@ -6,16 +6,16 @@ import (
 )
 
 //Returns a client for the Management API
-func GetClient(url string, accessToken string) Client {
-	return Client{API: api.API{URL: url, AccessToken: accessToken}}
+func MakeClient(url string, accessToken string) *Client {
+	return &Client{API: api.MakeAPI(url, accessToken)}
 }
 
 //Returns the profile of the logged in user
-func (c Client) GetUserProfile() (*UserProfile, error) {
+func (c *Client) UserProfile() (*UserProfile, error) {
 
 	var userProfile *UserProfile = new(UserProfile)
 	url := fmt.Sprintf("%s/user", c.URL)
-	err := c.GetJSON(url, nil, userProfile)
+	err := c.JSON(url, nil, userProfile)
 
 	if err != nil {
 		return nil, err

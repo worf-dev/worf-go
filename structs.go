@@ -20,7 +20,7 @@ func (w *WithUUID) BinaryID() []byte {
 	rs := strings.Replace(w.ID, "-", "", 0)
 	be, err := hex.DecodeString(rs)
 	if err != nil {
-		return nil
+		panic(err)
 	}
 	return be
 }

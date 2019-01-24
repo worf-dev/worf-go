@@ -17,7 +17,7 @@ type WithUUID struct {
 }
 
 func (w *WithUUID) BinaryID() []byte {
-	rs := strings.Replace(w.ID, "-", "", 0)
+	rs := strings.Replace(w.ID, "-", "", -1)
 	be, err := hex.DecodeString(rs)
 	if err != nil {
 		panic(err)

@@ -2,7 +2,7 @@ package worf
 
 import (
 	"fmt"
-	"geordi.ufp/7scientists/worf-go/api"
+	"github.com/7scientists/worf-go/api"
 )
 
 //Returns a client for the Management API

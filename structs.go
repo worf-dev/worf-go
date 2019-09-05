@@ -1,7 +1,7 @@
 package worf
 
 import (
-	"geordi.ufp/7scientists/worf-go/api"
+	"github.com/7scientists/worf-go/api"
 	"encoding/hex"
 	"strings"
 	"time"

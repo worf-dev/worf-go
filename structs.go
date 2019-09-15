@@ -42,7 +42,7 @@ type AccessToken struct {
 //Represents a user returned by the API.
 type User struct {
 	WithUUID
-	Login         string  `json:"login"`
+	DisplayName   string  `json:"display_name"`
 	Disabled      bool    `json:"disabled"`
 	EMail         string  `json:"email"`
 	NewEMail      *string `json:"new_email"`

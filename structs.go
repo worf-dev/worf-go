@@ -1,8 +1,8 @@
 package worf
 
 import (
-	"github.com/7scientists/worf-go/api"
 	"encoding/hex"
+	"github.com/7scientists/worf-go/api"
 	"strings"
 	"time"
 )
@@ -13,7 +13,7 @@ type Client struct {
 }
 
 type WithUUID struct {
-	ID            string  `json:"id"`
+	ID string `json:"id"`
 }
 
 func (w *WithUUID) BinaryID() []byte {
@@ -57,7 +57,6 @@ type Organization struct {
 	Description string `json:"description"`
 	Name        string `json:"name"`
 	Roles       []Role `json:"roles"`
-
 }
 
 //Represents the role of a user in an organization
@@ -68,7 +67,7 @@ type Role struct {
 
 //Represents a user profile returned by the API.
 type UserProfile struct {
-	User                User          `json:"user"`
-	AccessToken         AccessToken   `json:"access_token"`
-	Organization        *Organization `json:"organization,omitempty"`
+	User          User           `json:"user"`
+	AccessToken   AccessToken    `json:"access_token"`
+	Organizations []Organization `json:"organizations"`
 }

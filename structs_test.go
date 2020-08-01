@@ -20,18 +20,20 @@ func TestProfile(t *testing.T) {
 		],
 		"valid_until": null
 	},
-  "organization": {
-    "active": true,
-    "description": "test",
-    "id": "14eba2d9-5b68-4b8c-b431-d900879334a9",
-    "name": "Test",
-    "roles": [
-      {
-        "confirmed": true,
-        "role": "superuser"
-      }
-    ]
-  },
+  "organizations": [
+	{
+		"active": true,
+		"description": "test",
+		"id": "14eba2d9-5b68-4b8c-b431-d900879334a9",
+		"name": "Test",
+		"roles": [
+		  {
+			"confirmed": true,
+			"role": "superuser"
+		  }
+		]
+	}
+   ],
 	"user": {
 		"created_at": "2018-11-30T16:31:17.340251Z",
 		"disabled": false,
@@ -50,18 +52,18 @@ func TestProfile(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	if profile.Organization == nil {
-		t.Errorf("Organization should not be nil!")
+	if len(profile.Organizations) == 0 {
+		t.Errorf("Organizations length should not be 0!")
 	}
-	pe := profile.Organization
+	pe := profile.Organizations[0]
 	if pe.Active != true ||
-		 pe.Description != "test" ||
-		 pe.ID != "14eba2d9-5b68-4b8c-b431-d900879334a9" ||
-		 pe.Name != "Test" ||
-		 pe.Roles[0].Confirmed != true ||
-		 pe.Roles[0].Role != "superuser" {
-			 t.Errorf("Struct content doesn't match")
-		 }
+		pe.Description != "test" ||
+		pe.ID != "14eba2d9-5b68-4b8c-b431-d900879334a9" ||
+		pe.Name != "Test" ||
+		pe.Roles[0].Confirmed != true ||
+		pe.Roles[0].Role != "superuser" {
+		t.Errorf("Struct content doesn't match")
+	}
 }
 
 func TestEmptyProfile(t *testing.T) {
@@ -98,7 +100,7 @@ func TestEmptyProfile(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	if profile.Organization != nil {
-		t.Errorf("Organization should be nil!")
+	if len(profile.Organizations) != 0 {
+		t.Errorf("Organizations length should be 0!")
 	}
 }

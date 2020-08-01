@@ -26,9 +26,9 @@ type APIError struct {
 
 func MakeAPI(url, accessToken string) *API {
 	return &API{
-		URL: url,
+		URL:         url,
 		AccessToken: accessToken,
-		client: &http.Client{},
+		client:      &http.Client{},
 	}
 }
 

@@ -67,7 +67,8 @@ type Role struct {
 
 //Represents a user profile returned by the API.
 type UserProfile struct {
-	User          User           `json:"user"`
-	AccessToken   AccessToken    `json:"access_token"`
-	Organizations []Organization `json:"organizations"`
+	User          User                   `json:"user"`
+	AccessToken   AccessToken            `json:"access_token"`
+	Organizations []Organization         `json:"organizations"`
+	Limits        map[string]interface{} `json:"limits,omitempty"`
 }

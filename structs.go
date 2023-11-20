@@ -2,7 +2,7 @@ package worf
 
 import (
 	"encoding/hex"
-	"github.com/7scientists/worf-go/api"
+	"github.com/getworf/worf-go/api"
 	"strings"
 	"time"
 )

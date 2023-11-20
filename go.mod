@@ -1,3 +1,3 @@
-module github.com/7scientists/worf-go
+module github.com/getworf/worf-go
 
 go 1.12

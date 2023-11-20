@@ -2,7 +2,7 @@ package worf
 
 import (
 	"fmt"
-	"github.com/7scientists/worf-go/api"
+	"github.com/getworf/worf-go/api"
 )
 
 //Returns a client for the Management API

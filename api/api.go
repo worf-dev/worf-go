@@ -64,6 +64,11 @@ func (api *API) JSON(method string, url string, params map[string]string, data i
 			OriginalError: err}
 	}
 
+	if data == nil {
+		// we don't need to parse a response
+		return nil
+	}
+
 	return api.ParseJSON(response, data)
 }
 

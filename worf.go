@@ -28,3 +28,7 @@ func (c *Client) PasswordLogin(email, password string) (*UserProfile, error) {
 		return userProfile, nil
 	}
 }
+
+func (c *Client) PasswordSignup(email, password, language string) error {
+	return c.JSON(http.MethodPost, "signup/password", map[string]string{"email": email, "password": password, "language": language}, nil)
+}
